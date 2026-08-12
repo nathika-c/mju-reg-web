@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/src/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/src/login.html"
+    },
+    {
+      "src": "/news",
+      "dest": "/src/news.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/$1"
+    }
+  ]
+}
