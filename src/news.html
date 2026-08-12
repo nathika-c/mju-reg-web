@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข่าวสารและประกาศสำคัญ - มหาวิทยาลัยแม่โจ้</title>
+  <link href="./output.css" rel="stylesheet">
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col m-0 p-0">
+
+  <!-- ================= 1. HEADER & NAVIGATION BAR ================= -->
+  <header class="bg-[#004b38] text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 md:px-6 flex items-center justify-between">
+
+      <!-- โลโก้ & ชื่อมหาวิทยาลัย -->
+      <a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition shrink-0">
+        <img src="image/MJU_LOGO.svg" alt="โลโก้มหาวิทยาลัยแม่โจ้" class="w-10 h-10 object-contain drop-shadow">
+        <div>
+          <h1 class="text-base sm:text-lg font-bold leading-tight tracking-wide">มหาวิทยาลัยแม่โจ้</h1>
+          <p class="text-[11px] text-[#d4af37] font-medium tracking-wider uppercase">MAEJO UNIVERSITY</p>
+        </div>
+      </a>
+
+      <!-- ปุ่มเมนูสำหรับ Mobile & Tablet -->
+      <button id="menu-toggle" aria-label="เปิดเมนูนำทาง"
+        class="lg:hidden flex items-center gap-2 px-3 py-2 rounded bg-[#006047] hover:bg-[#007355] text-white font-medium text-sm transition focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <span class="hidden sm:inline text-sm font-medium">เมนู</span>
+      </button>
+
+      <!-- แทบบาร์เมนูนำทางบน Desktop -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium no-scrollbar overflow-x-auto">
+        <!-- 1. หน้าแรก -->
+        <a href="index.html"
+          class="px-3.5 py-1.5 rounded-md text-emerald-100 hover:bg-[#006047] hover:text-white transition">
+          หน้าแรก
+        </a>
+
+        <!-- 2. เข้าสู่ระบบ -->
+        <a href="login.html"
+          class="px-3.5 py-1.5 rounded-md text-emerald-100 hover:bg-[#006047] hover:text-white transition">
+          เข้าสู่ระบบ
+        </a>
+
+        <!-- 3. หลักสูตร (ปิดการกด) -->
+        <button type="button" disabled
+          class="px-3 py-1.5 rounded-md text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+          หลักสูตร
+        </button>
+
+        <!-- 4. วิชาที่เปิดสอน (ปิดการกด) -->
+        <button type="button" disabled
+          class="px-3 py-1.5 rounded-md text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+          วิชาที่เปิดสอน
+        </button>
+
+        <!-- 5. ปฏิทินการศึกษา (ปิดการกด) -->
+        <button type="button" disabled
+          class="px-3 py-1.5 rounded-md text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+          ปฏิทินการศึกษา
+        </button>
+
+        <!-- 6. คู่มือ (ปิดการกด) -->
+        <button type="button" disabled
+          class="px-3 py-1.5 rounded-md text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+          คู่มือ
+        </button>
+
+        <!-- 7. ข่าวสาร (Active) -->
+        <a href="news.html"
+          class="px-3.5 py-1.5 rounded-md bg-[#006047] text-white font-bold hover:bg-[#007355] transition shadow-sm">
+          ข่าวสาร
+        </a>
+
+        <!-- 8. ติดต่อ (ปิดการกด) -->
+        <button type="button" disabled
+          class="px-3 py-1.5 rounded-md text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+          ติดต่อ
+        </button>
+      </nav>
+
+    </div>
+
+    <!-- เมนูพับสำหรับ Mobile & Tablet -->
+    <nav id="mobile-menu" class="hidden lg:hidden px-4 pb-3 pt-2 border-t border-emerald-800/80 bg-[#004130]">
+      <ul class="flex flex-col gap-1 text-sm font-medium max-w-7xl mx-auto">
+        <li>
+          <a href="index.html" class="w-full text-left block px-3 py-2 rounded text-emerald-100 hover:bg-[#006047] hover:text-white transition">หน้าแรก</a>
+        </li>
+        <li>
+          <a href="login.html" class="w-full text-left block px-3 py-2 rounded text-emerald-100 hover:bg-[#006047] hover:text-white transition">เข้าสู่ระบบ</a>
+        </li>
+        <li>
+          <button type="button" disabled class="w-full text-left block px-3 py-2 rounded text-emerald-200/40 opacity-50 cursor-not-allowed">หลักสูตร</button>
+        </li>
+        <li>
+          <button type="button" disabled class="w-full text-left block px-3 py-2 rounded text-emerald-200/40 opacity-50 cursor-not-allowed">วิชาที่เปิดสอน</button>
+        </li>
+        <li>
+          <button type="button" disabled class="w-full text-left block px-3 py-2 rounded text-emerald-200/40 opacity-50 cursor-not-allowed">ปฏิทินการศึกษา</button>
+        </li>
+        <li>
+          <button type="button" disabled class="w-full text-left block px-3 py-2 rounded text-emerald-200/40 opacity-50 cursor-not-allowed">คู่มือ</button>
+        </li>
+        <li>
+          <a href="news.html" class="w-full text-left block px-3 py-2 rounded bg-[#006047] text-white font-bold hover:bg-[#007355] transition">ข่าวสาร</a>
+        </li>
+        <li>
+          <button type="button" disabled class="w-full text-left block px-3 py-2 rounded text-emerald-200/40 opacity-50 cursor-not-allowed">ติดต่อ</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= 2. MAIN NEWS CONTENT ================= -->
+  <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 md:p-8 space-y-8">
+
+    <!-- Page Title Header -->
+    <div class="bg-gradient-to-r from-[#004b38] to-[#006047] rounded-2xl p-6 sm:p-8 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-2">
+          📢 ข่าวสารและประกาศสำคัญ
+        </h2>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1">
+          รวบรวมประกาศ กำหนดการสอบ และข่าวการศึกษา สำนักบริหารและพัฒนาวิชาการ มหาวิทยาลัยแม่โจ้
+        </p>
+      </div>
+      <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-xs border border-white/20 text-xs">
+        <span>จำนวนประกาศทั้งหมด: <strong class="text-[#d4af37]">3 ประกาศด่วน</strong></span>
+      </div>
+    </div>
+
+    <!-- Main News Grid with Sidebar (Semantic Layout) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- News Feed (8 Cols) -->
+      <section class="lg:col-span-8 space-y-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Announcement 1: กำหนดการสอบกลางภาค -->
+          <article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006047]/40 transition">
+            <div class="p-4 space-y-3">
+              <div class="overflow-hidden rounded-xl border border-gray-100 shadow-xs">
+                <img src="image/midterm.jpg" alt="กำหนดการสอบกลางภาค ภาคเรียนที่ 1 ปีการศึกษา 2569" class="w-full h-auto object-cover hover:scale-102 transition duration-300">
+              </div>
+
+              <h3 class="font-bold text-[#004b38] text-sm leading-snug">
+                <a href="#" class="hover:text-[#006047] transition">
+                  กำหนดการสอบกลางภาค ภาคเรียนที่ 1 ปีการศึกษา 2569
+                </a>
+              </h3>
+            </div>
+
+            <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center justify-between gap-1">
+              <span>ประกาศโดย: <strong class="text-gray-700">บุษกร ชัยวงศ์</strong></span>
+              <span>วันที่: <strong class="text-gray-700">24 ก.ค. 2569</strong></span>
+            </div>
+          </article>
+
+          <!-- Announcement 2: การชำระเงิน -->
+          <article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006047]/40 transition">
+            <div class="p-4 space-y-3">
+              <div class="overflow-hidden rounded-xl border border-gray-100 shadow-xs">
+                <img src="image/payment.jpg" alt="การชำระเงิน และการชำระเงินล่าช้า" class="w-full h-auto object-cover hover:scale-102 transition duration-300">
+              </div>
+
+              <h3 class="font-bold text-[#004b38] text-sm leading-snug">
+                <a href="#" class="hover:text-[#006047] transition">
+                  การชำระเงิน และการชำระเงินล่าช้า
+                </a>
+              </h3>
+            </div>
+
+            <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center justify-between gap-1">
+              <span>ประกาศโดย: <strong class="text-gray-700">สำนักบริหารและพัฒนาวิชาการ</strong></span>
+              <span>วันที่: <strong class="text-gray-700">14 ก.ค. 2569</strong></span>
+            </div>
+          </article>
+
+          <!-- Announcement 3: การเข้าใช้เว็บ -->
+          <article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006047]/40 transition md:col-span-2">
+            <div class="p-4 space-y-3">
+              <div class="overflow-hidden rounded-xl border border-gray-100 shadow-xs max-h-72">
+                <img src="image/loginwebsite.jpg" alt="การเข้าใช้งานเว็บไซต์บริการการศึกษา" class="w-full h-auto object-cover hover:scale-102 transition duration-300">
+              </div>
+
+              <h3 class="font-bold text-[#004b38] text-sm leading-snug">
+                <a href="#" class="hover:text-[#006047] transition">
+                  การเข้าใช้งานเว็บไซต์บริการการศึกษา REG.MJU.AC.TH
+                </a>
+              </h3>
+            </div>
+
+            <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 text-[11px] text-gray-500 flex flex-wrap items-center justify-between gap-1">
+              <span>ประกาศโดย: <strong class="text-gray-700">ศูนย์เทคโนโลยีสารสนเทศ</strong></span>
+              <span>วันที่: <strong class="text-gray-700">1 ก.ค. 2569</strong></span>
+            </div>
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- Sidebar Announcements (Semantic <aside> 4 Cols) -->
+      <aside aria-label="หมวดหมู่ข่าวสารและช่องทางติดตาม" class="lg:col-span-4 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 space-y-6">
+        <div>
+          <h3 class="font-bold text-[#004b38] text-base border-b border-gray-100 pb-3 flex items-center gap-2">
+            🗂️ หมวดหมู่ข่าวสาร
+          </h3>
+          <ul class="mt-3 space-y-2 text-xs font-medium">
+            <li>
+              <a href="#" class="flex items-center justify-between p-2.5 rounded-lg bg-emerald-50 text-emerald-900 font-bold border border-emerald-200">
+                <span>📌 ประกาศการเรียนการสอบ</span>
+                <span class="bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded-full text-[10px]">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between p-2.5 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                <span>💳 ประกาศค่าธรรมเนียมการศึกษา</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[10px]">1</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between p-2.5 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                <span>🌐 ประกาศระบบสารสนเทศ</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[10px]">1</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-900 to-[#004b38] p-5 rounded-xl text-white space-y-3">
+          <h4 class="font-bold text-sm text-[#d4af37]">ช่องทางการติดตามข่าวสาร</h4>
+          <p class="text-xs text-emerald-100 leading-relaxed">
+            ติดตามข่าวสารการลงทะเบียนเรียน ตารางสอบ และกำหนดการต่างๆ ได้ผ่านทางเว็บไซต์หลักมหาวิทยาลัยแม่โจ้
+          </p>
+          <a href="https://reg.mju.ac.th" target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-white text-[#004b38] text-xs font-bold rounded-lg hover:bg-emerald-50 transition shadow-xs">
+            ไปยังเว็บ reg.mju.ac.th &rarr;
+          </a>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ================= 3. FOOTER ================= -->
+  <footer class="bg-gray-900 text-gray-300 mt-auto border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-8 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+      <div class="space-y-2">
+        <h4 class="font-bold text-white text-sm">สำนักบริหารและพัฒนาวิชาการ</h4>
+        <p class="text-gray-400 leading-relaxed">มหาวิทยาลัยแม่โจ้ 63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="font-bold text-white text-sm">ติดต่อเรา</h4>
+        <p class="text-gray-400">โทรศัพท์: 053-873000 | อีเมล: registrar@mju.ac.th</p>
+      </div>
+
+      <div class="space-y-2 md:text-right">
+        <p class="text-gray-400">&copy; 2026 Maejo University. All rights reserved.</p>
+        <p class="text-emerald-400 font-mono text-[11px]">Web Technology Assignment Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+</body>
+
+</html>
